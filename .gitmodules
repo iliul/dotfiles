@@ -1,0 +1,9 @@
+[submodule "ceph-cloudin"]
+	path = ceph-others/ceph-cloudin
+	url = git@github.com:qrGitHub/CloudIn.git
+[submodule "ceph-study"]
+	path = ceph-others/ceph-study
+	url = git@github.com:lidaohang/ceph_study.git
+[submodule "rocksdb-doc-cn"]
+	path = rocksdb/rocksdb-doc-cn
+	url = git@github.com:johnzeng/rocksdb-doc-cn.git

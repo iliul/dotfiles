@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<workload name="${workloadname}" description="sample benchmark for s3">
+    <workflow>
+        <workstage name="${workstagename}">
+            <work name="${workname}" workers="${workers}" totalOps="${totalOps}" driver="driver1">
+                <storage type="s3" config="accesskey=${accesskey};secretkey=${secretkey};endpoint=http://172.16.1.3:7480/;path_style_access=false" />
+                <operation type="read" ratio="100" config="cprefix=${cprefix};oprefix=${oprefix};containers=c(1);objects=u(1,20000)" />
+            </work>
+            <work name="${workname}" workers="${workers}" totalOps="${totalOps}" driver="driver2">
+                <storage type="s3" config="accesskey=${accesskey};secretkey=${secretkey};endpoint=http://172.16.1.6:7480/;path_style_access=false" />
+                <operation type="read" ratio="100" config="cprefix=${cprefix};oprefix=${oprefix};containers=c(1);objects=u(20001,40000)" />
+            </work>
+            <work name="${workname}" workers="${workers}" totalOps="${totalOps}" driver="driver3">
+                <storage type="s3" config="accesskey=${accesskey};secretkey=${secretkey};endpoint=http://172.16.1.8:7480/;path_style_access=false" />
+                <operation type="read" ratio="100" config="cprefix=${cprefix};oprefix=${oprefix};containers=c(1);objects=u(40001,60000)" />
+            </work>
+            <work name="${workname}" workers="${workers}" totalOps="${totalOps}" driver="driver4">
+                <storage type="s3" config="accesskey=${accesskey};secretkey=${secretkey};endpoint=http://172.16.1.10:7480/;path_style_access=false" />
+                <operation type="read" ratio="100" config="cprefix=${cprefix};oprefix=${oprefix};containers=c(1);objects=u(60001,80000)" />
+            </work>
+            <work name="${workname}" workers="${workers}" totalOps="${totalOps}" driver="driver5">
+                <storage type="s3" config="accesskey=${accesskey};secretkey=${secretkey};endpoint=http://172.16.1.12:7480/;path_style_access=false" />
+                <operation type="read" ratio="100" config="cprefix=${cprefix};oprefix=${oprefix};containers=c(1);objects=u(80001,100000)" />
+            </work>
+        </workstage>
+    </workflow>
+</workload>
