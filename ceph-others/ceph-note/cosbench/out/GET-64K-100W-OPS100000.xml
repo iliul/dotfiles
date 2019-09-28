@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<workload name="GET-64K-100W-OPS100000" description="sample benchmark for s3">
+    <storage type="s3" config="accesskey=cosbench-yuliyang;secretkey=cosbench-yuliyang;endpoint=http://10.128.3.68/" />
+    <workflow>
+        <workstage name="100">
+            <work name="GET-64K-100W-OPS100000" workers="100" totalOps="100000">
+                <operation type="read" ratio="100" config="cprefix=cosbench-yuliyang;oprefix=100wks_64K;containers=c(1);objects=u(1,100000)" />
+            </work>
+        </workstage>
+    </workflow>
+</workload>

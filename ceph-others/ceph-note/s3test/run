@@ -1,0 +1,7 @@
+#create test user
+radosgw-admin user create --uid=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef --display-name=youruseridhere --access-key=ABCDEFGHIJKLMNOPQRST --secret-key=abcdefghijklmnopqrstuvwxyzabcdefghijklmn
+radosgw-admin user create --uid=56789abcdef0123456789abcdef0123456789abcdef0123456789abcdef01234 --display-name=john.doe --email=john.doe@example.com  --access-key=NOPQRSTUVWXYZABCDEFG --secret-key=nopqrstuvwxyzabcdefghijklmnabcdefghijklm
+
+#run test 
+S3TEST_CONF=test.conf ./virtualenv/bin/nosetests   -v >> record.txt  2>&1
+S3TEST_CONF=test.conf ./virtualenv/bin/nosetests   -v -a "!fails_on_rgw" >> record.txt  2>&1

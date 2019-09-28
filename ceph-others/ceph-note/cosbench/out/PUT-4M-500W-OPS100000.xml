@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<workload name="PUT-4M-500W-OPS100000" description="sample benchmark for s3">
+    <storage type="s3" config="accesskey=cosbench-yuliyang;secretkey=cosbench-yuliyang;endpoint=http://10.128.3.68/" />
+    <workflow>
+        <workstage name="500">
+            <work name="PUT-4M-500W-OPS100000" workers="500" totalOps="100000">
+                <operation type="write" ratio="100" config="cprefix=cosbench-yuliyang;oprefix=500wks_4M;containers=c(1);objects=s(1,100000);sizes=c(4)MB" />
+            </work>
+        </workstage>
+    </workflow>
+</workload>

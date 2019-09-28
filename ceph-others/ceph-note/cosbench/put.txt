@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<workload name="${workloadname}" description="sample benchmark for s3">
+    <storage type="s3" config="accesskey=${accesskey};secretkey=${secretkey};endpoint=${endpoint}" />
+    <workflow>
+        <workstage name="${workstagename}">
+            <work name="${workname}" workers="${workers}" totalOps="${totalOps}">
+                <operation type="write" ratio="100" config="cprefix=${cprefix};oprefix=${oprefix};containers=c(1);objects=s(1,${totalOps});sizes=c${sizes}" />
+            </work>
+        </workstage>
+    </workflow>
+</workload>

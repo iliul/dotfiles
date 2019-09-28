@@ -1,0 +1,29 @@
+
+反向代理
+在自己的一台vitualbox的虚拟机(可以连接外网)上运行ssh 反向代理
+
+ssh -qngfNTR 6768:127.0.0.1:22 root@10.254.9.13 -p 22
+
+在局域网内物理机ceph13上ssh root@127.0.0.1 -p6768就能登上joke这台vitualbox上的虚拟机了
+
+
+ssh -D 9999 root@127.0.0.1 -p 6768
+
+
+[root@ceph13 ~]# proxychains git clone https://github.com/ceph/ceph.git
+ProxyChains-3.1 (http://proxychains.sf.net)
+Cloning into 'ceph'...
+|DNS-request| github.com 
+|S-chain|-<>-127.0.0.1:9999-<><>-4.2.2.2:53-<><>-OK
+|DNS-response| github.com is 192.30.253.113
+|S-chain|-<>-127.0.0.1:9999-<><>-192.30.253.113:443-<><>-OK
+|DNS-request| github.com 
+|S-chain|-<>-127.0.0.1:9999-<><>-4.2.2.2:53-<><>-OK
+|DNS-response| github.com is 192.30.253.113
+|S-chain|-<>-127.0.0.1:9999-<><>-192.30.253.113:443-<><>-OK
+remote: Counting objects: 406281, done.
+remote: Compressing objects: 100% (25/25), done.
+Receiving objects:   1% (6105/406281), 1.61 MiB | 204.00 KiB/s
+
+
+

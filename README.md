@@ -7,3 +7,4 @@
 - [boto](boto-demo)
 - [cosbench](cosbench)
 - [rocksdb](rocksdb)
+- [ceph](ceph-others)
